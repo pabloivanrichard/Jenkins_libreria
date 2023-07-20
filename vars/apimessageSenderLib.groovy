@@ -4,7 +4,7 @@ def apimessageSender(String url, String message) {
     http.setRequestProperty("Content-Type", "application/json")
     http.setDoOutput(true)
     
-    def data = [message: message] as JSON
+    def data = message
     
     http.getOutputStream().withCloseable { os ->
         os.write(data.toString().getBytes("UTF-8"))
@@ -13,4 +13,7 @@ def apimessageSender(String url, String message) {
     
     def response = http.getResponseCode()
     println("API Response: $response")
+
+
+
 }
