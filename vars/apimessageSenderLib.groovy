@@ -1,4 +1,5 @@
 def apimessageSender(String url, String message) {
+  /*
     def http = new URL(url).openConnection()
     http.setRequestMethod("POST")
     http.setRequestProperty("Content-Type", "application/json")
@@ -13,6 +14,22 @@ def apimessageSender(String url, String message) {
     
     def response = http.getResponseCode()
     println("API Response: $response")
+*/
+    def url = new URL(url)
+    def conn = url.openConnection()
+    conn.setDoOutput(true)
+    def writer = new OutputStreamWriter(conn.getOutputStream())
+
+    writer.write(message)
+    writer.flush()
+    String line
+    def reader = new BufferedReader(new     InputStreamReader(conn.getInputStream()))
+    while ((line = reader.readLine()) != null) {
+      println line
+    }
+    writer.close()
+    reader.close()
+
 
 
 
