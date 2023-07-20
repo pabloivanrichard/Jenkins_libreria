@@ -1,4 +1,4 @@
-def call(String url, String message) {
+def apimessageSender(String url, String message) {
     def http = new URL(url).openConnection()
     http.setRequestMethod("POST")
     http.setRequestProperty("Content-Type", "application/json")
