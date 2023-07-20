@@ -11,3 +11,7 @@ def promoter(Map params){
     sh "docker tag ${params.DockerImage} ${params.DockerNewImage}"
     sh "docker push ${params.DockerNewImage}"
 }
+
+def prueba(String params){
+    echo "prueba ${params}"
+}
