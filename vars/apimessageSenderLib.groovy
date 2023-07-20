@@ -1,4 +1,4 @@
-def apimessageSender(String url, String message) {
+def apimessageSender(String urls, String message) {
   /*
     def http = new URL(url).openConnection()
     http.setRequestMethod("POST")
@@ -15,7 +15,7 @@ def apimessageSender(String url, String message) {
     def response = http.getResponseCode()
     println("API Response: $response")
 */
-    def url = new URL(url)
+    def url = new URL(urls)
     def conn = url.openConnection()
     conn.setDoOutput(true)
     def writer = new OutputStreamWriter(conn.getOutputStream())
